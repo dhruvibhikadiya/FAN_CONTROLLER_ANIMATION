@@ -1,0 +1,32 @@
+import simplegui
+s=0
+v=0
+flag=0
+f=simplegui.load_image("f:/fan5.jpg")
+def draw(canvas):
+    global s,v
+    canvas.draw_image(f,[295/2,295/2],[295,295],[295/2,295/2],[295,295],1+s)
+    s+=v
+def start():
+    global v
+    v=0.3
+def slow():
+    global v
+    if v!=0:
+        v=0.2
+def fast():
+    global v
+    if v!=0:
+        v=0.4
+def  stop():
+    global v
+    v=0
+    
+    
+frame=simplegui.create_frame('dhruvi',295,295)
+frame.start()
+frame.set_draw_handler(draw)
+frame.add_button("start",start)
+frame.add_button("slow",slow)
+frame.add_button("fast",fast)
+frame.add_button("stop",stop)
